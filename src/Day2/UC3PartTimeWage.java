@@ -6,18 +6,33 @@ public class UC3PartTimeWage {
 
     public static void main(String[] args)
     {
+        int IS_FULL_TIME=1;
+        int IS_PART_TIME=0;
+        int EMP_RATE_PER_HOUR=20;
         Scanner sc=new Scanner(System.in);
 
-        System.out.println("Enter the wage per hour:");
-        int amount=sc.nextInt();
+        int empHours=0;
+        int empWage=0;
 
-        System.out.println("Enter the number of full-time working hours per day:");
-        int workingHours=sc.nextInt();
+        double attendance= Math.floor(Math.random()*10) % 2;
 
-        System.out.println("Enter the number of part-time working hours per day:");
-        int partTimeHours=sc.nextInt();
+        if(attendance==IS_FULL_TIME)
+        {
+            System.out.println("Employee is present full time");
+            empHours=8;
+        }
+        else if(attendance==IS_PART_TIME){
+            System.out.println("Employee is present half-time");
+            empHours=4;
+        }
+        else {
+            System.out.println("Employee is absent");
+            empHours=0;
+        }
 
-        System.out.println("The total daily wage of the employee is: Rs "+ amount*(workingHours+partTimeHours) );
+        empWage=empHours*EMP_RATE_PER_HOUR;
+
+        System.out.println("Employee Wage: "+empWage);
 
     }
 }

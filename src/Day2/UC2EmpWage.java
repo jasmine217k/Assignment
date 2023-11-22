@@ -6,15 +6,28 @@ public class UC2EmpWage {
 
     public static void main(String [] args)
     {
+        int IS_FULL_TIME=1;
+        int EMP_RATE_PER_HOUR=20;
         Scanner sc=new Scanner(System.in);
 
-        System.out.println("Enter the wage per hour:");
-        int amount=sc.nextInt();
+        int empHours=0;
+        int empWage=0;
 
-        System.out.println("Enter the number of working hours per day:");
-        int workingHours=sc.nextInt();
+        double attendance= Math.floor(Math.random()*10) % 2;
 
-        System.out.println("The total daily wage of the employee is: Rs "+amount*workingHours);
+        if(attendance==IS_FULL_TIME)
+        {
+            System.out.println("Employee is present");
+            empHours=8;
+        }
+        else {
+            System.out.println("Employee is absent");
+            empHours=0;
+        }
+
+        empWage=empHours*EMP_RATE_PER_HOUR;
+
+        System.out.println("Employee Wage: "+empWage);
 
 
     }
