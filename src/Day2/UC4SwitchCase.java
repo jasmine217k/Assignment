@@ -4,38 +4,35 @@ import java.util.Scanner;
 
 public class UC4SwitchCase {
 
+    public static final int IS_PART_TIME=1;
+    public static final int IS_FULL_TIME=2;
     public static void main(String[] args)
     {
+
+        int EMP_RATE_PER_HOUR=20;
         Scanner sc=new Scanner(System.in);
 
-        System.out.println("Enter the wage per hour:");
-        int amount=sc.nextInt();
+        int empHrs=0;
+        int empWage=0;
 
-        System.out.println("Enter the number of full-time working hours per day:");
-        int workingHours=sc.nextInt();
+        int attendance= (int)Math.floor(Math.random()*10) % 3;
 
-        System.out.println("Enter the number of part-time working hours per day:");
-        int partTimeHours=sc.nextInt();
-
-        System.out.println("Enter the number of working days per month:");
-        int days=sc.nextInt();
-
-        int totalWorkingHours=(workingHours+partTimeHours)*days;
-
-        switch (totalWorkingHours > 100 ? "greaterThan100" : "") {
-            case "greaterThan100":
-                totalWorkingHours = 100;
+        switch(attendance)
+        {
+            case IS_PART_TIME:
+                empHrs=4;
+                break;
+            case IS_FULL_TIME:
+                empHrs=8;
                 break;
             default:
-                // Handle other cases if needed
-                break;
+                empHrs=0;
+
         }
 
+        empWage=empHrs*EMP_RATE_PER_HOUR;
 
-        int monthlyWage=(amount*totalWorkingHours);
-
-        System.out.println("The total monthly wage of the employee is: Rs "+ monthlyWage);
-
+        System.out.println("Employee Wage: "+empWage);
 
     }
 }

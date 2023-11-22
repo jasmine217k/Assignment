@@ -14,7 +14,7 @@ public class UC3PartTimeWage {
         int empHours=0;
         int empWage=0;
 
-        double attendance= Math.floor(Math.random()*10) % 2;
+        int attendance= (int)Math.floor(Math.random()*10) % 3;
 
         if(attendance==IS_FULL_TIME)
         {
